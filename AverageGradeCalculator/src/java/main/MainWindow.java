@@ -14,12 +14,13 @@ import javafx.stage.Stage;
 
 public class MainWindow extends Application {
 
+  //object variables
+  private int averageGradeValue;
+
   //list with all added subjects
   ObservableList<Subject> subjects = FXCollections.observableArrayList();
 
-  /*
-   * components for the JavaFX window
-   */
+  //components for the JavaFX window
   private final BorderPane border = new BorderPane();
   private final HBox hBoxLeft1 = new HBox(10);
   private final HBox hBoxRight1 = new HBox(10);
@@ -27,16 +28,30 @@ public class MainWindow extends Application {
   private final VBox vBoxLeft2 = new VBox(10);
   private final VBox vBoxLeft3 = new VBox(10);
 
-  /*
-   * components for the results table
-   */
+  //components for the results table
   private StringProperty subjectName;
   private StringProperty grade;
 
   /**
+   * method to calculate the average grade of all subjects
+   *
+   * @param list a list that provides subjects with subject names and grades
+   * @return returns the average grade of all subjects inside the list
+   */
+  public int calcAverageGrade(ObservableList<Subject> list) {
+    int cnt = 0;
+    int sum = 0;
+    for (Subject s : subjects) {
+      sum+=s.getFachNote();
+      cnt++;
+    }
+    return sum / cnt;
+  }
+
+  /**
    * sets up the arrangement of the JavaFX GUI components for use by a user
    *
-   * @param primaryStage Primary stage for the JavaFX window
+   * @param primaryStage primary stage for the JavaFX window
    * @throws Exception TODO: will be implemented soon
    */
   @Override
@@ -55,6 +70,14 @@ public class MainWindow extends Application {
         subjects.add(new Subject(textInput2.getText(), Integer.getInteger(textInput1.getText())));
       } else {
         System.err.println("incorrect input!");
+      }
+    });
+
+    calcAvgButton.setOnAction(ActionEvent -> {
+      if (!subjects.isEmpty()) {
+        averageGradeValue = calcAverageGrade(subjects);
+      } else {
+        System.err.println("Fehler bei der Ergebnisberechnung!");
       }
     });
 

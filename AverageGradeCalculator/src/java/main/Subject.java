@@ -24,4 +24,5 @@ public class Subject {
   public void setFachNote(int fachNote) {
     this.fachNote = fachNote;
   }
+
 }
