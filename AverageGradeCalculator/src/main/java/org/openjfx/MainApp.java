@@ -42,7 +42,7 @@ public class MainApp extends Application {
     int cnt = 0;
     int sum = 0;
     for (Subject s : subjects) {
-      sum+=s.getFachNote();
+      sum+=s.getSubjectGrade();
       cnt++;
     }
     return sum / cnt;
@@ -77,9 +77,13 @@ public class MainApp extends Application {
       if (!subjects.isEmpty()) {
         averageGradeValue = calcAverageGrade(subjects);
       } else {
-        System.err.println("Fehler bei der Ergebnisberechnung!");
+        System.err.println("Error while calculating the result!");
       }
     });
+
+    border.setLeft();
+    border.setCenter();
+
 
     //making stage visible
     primaryStage.setTitle("Average-Grade-Calculator");

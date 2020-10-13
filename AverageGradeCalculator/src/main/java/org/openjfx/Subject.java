@@ -1,28 +1,28 @@
 package org.openjfx;
 
 public class Subject {
-  private String fachName;
-  private int fachNote;
+  private String subjectName;
+  private int subjectGrade;
 
-  public Subject(String fachName, int fachNote) {
-    this.fachName = fachName;
-    this.fachNote = fachNote;
+  public Subject(String subjectName, int subjectGrade) {
+    this.subjectName = subjectName;
+    this.subjectGrade = subjectGrade;
   }
 
-  public String getFachName() {
-    return fachName;
+  public String getSubjectName() {
+    return subjectName;
   }
 
-  public int getFachNote() {
-    return fachNote;
+  public int getSubjectGrade() {
+    return subjectGrade;
   }
 
-  public void setFachName(String fachName) {
-    this.fachName = fachName;
+  public void setSubjectName(String subjectName) {
+    this.subjectName = subjectName;
   }
 
-  public void setFachNote(int fachNote) {
-    this.fachNote = fachNote;
+  public void setSubjectGrade(int subjectGrade) {
+    this.subjectGrade = subjectGrade;
   }
 
 }
