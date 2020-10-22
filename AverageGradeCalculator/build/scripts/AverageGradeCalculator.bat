@@ -33,7 +33,7 @@ set APP_HOME=%DIRNAME%..
 for %%i in ("%APP_HOME%") do set APP_HOME=%%~fi
 
 @rem Add default JVM options here. You can also use JAVA_OPTS and AVERAGE_GRADE_CALCULATOR_OPTS to pass JVM options to this script.
-set DEFAULT_JVM_OPTS="--module-path" "%APP_HOME%\lib" "--module" "AverageGradeCalculator.main/org.openjfx.MainApp"
+set DEFAULT_JVM_OPTS="--module-path" "%APP_HOME%\lib" "--module" "AverageGradeCalculator.main/org.openjfx.Main"
 
 @rem Find java.exe
 if defined JAVA_HOME goto findJavaFromJavaHome
@@ -85,7 +85,7 @@ set CMD_LINE_ARGS=%*
 set CLASSPATH=
 
 @rem Execute AverageGradeCalculator
-"%JAVA_EXE%" %DEFAULT_JVM_OPTS% %JAVA_OPTS% %AVERAGE_GRADE_CALCULATOR_OPTS%  -classpath "%CLASSPATH%" AverageGradeCalculator.main/org.openjfx.MainApp %CMD_LINE_ARGS%
+"%JAVA_EXE%" %DEFAULT_JVM_OPTS% %JAVA_OPTS% %AVERAGE_GRADE_CALCULATOR_OPTS%  -classpath "%CLASSPATH%" AverageGradeCalculator.main/org.openjfx.Main %CMD_LINE_ARGS%
 
 :end
 @rem End local scope for the variables with windows NT shell

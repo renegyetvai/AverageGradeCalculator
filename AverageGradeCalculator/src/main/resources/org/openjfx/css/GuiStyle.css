@@ -1,0 +1,11 @@
+.mainWindow {
+    -fx-background-color: #646464;
+}
+
+.leftPane {
+    -fx-background-color: #ffd450;
+}
+
+.resultPane {
+    -fx-background-color: #b2ff45;
+}
