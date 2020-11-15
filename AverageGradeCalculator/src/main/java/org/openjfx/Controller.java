@@ -2,9 +2,7 @@ package org.openjfx;
 
 import javafx.application.Application;
 import javafx.application.Platform;
-import javafx.beans.property.SimpleStringProperty;
 import javafx.fxml.FXML;
-//import javafx.scene.control.Button;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
@@ -20,6 +18,11 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+
+/**
+ * The controller extends the class Application and implements the interface Initializable.
+ * The controller controls the elements from JavaFX and their behavior.
+ */
 public class Controller extends Application implements Initializable {
 
   private final InformationController informationController = new InformationController();
@@ -28,12 +31,6 @@ public class Controller extends Application implements Initializable {
   private TextField textInput1;
   @FXML
   private TextField textInput2;
-  /*@FXML
-  private Button calcButton;
-  @FXML
-  private Button addButton;
-  @FXML
-  private Button resetButton;*/
   @FXML
   private Text resultText;
   @FXML
@@ -47,6 +44,12 @@ public class Controller extends Application implements Initializable {
     launch(args);
   }
 
+  /**
+   * The start method loads all files relevant for JavaFX and then starts the JavaFX Stage to
+   * display the GUI.
+   *
+   * @param primaryStage Stage, which should be started from JavaFX
+   */
   @Override
   public void start(Stage primaryStage) {
     Parent root = null;
@@ -69,17 +72,29 @@ public class Controller extends Application implements Initializable {
     primaryStage.show();
   }
 
+  /**
+   * This method initializes the controller. It is been used to set up the CellValueFactory.
+   *
+   * @param location not used yet
+   * @param resources not used yet
+   */
   @Override
   public void initialize(URL location, ResourceBundle resources) {
     subjectColumn.setCellValueFactory(new PropertyValueFactory<>("subjectName"));
     gradeColumn.setCellValueFactory(new PropertyValueFactory<>("subjectGrade"));
   }
 
+  /**
+   * This help method updates the text of the result display.
+   */
   private void updateResultText() {
     String newString = String.valueOf(informationController.information.getAverageGradeValue());
     resultText.setText(newString);
   }
 
+  /**
+   *
+   */
   @FXML
   public void addButtonEvent() {
     try {
@@ -101,12 +116,18 @@ public class Controller extends Application implements Initializable {
     }
   }
 
+  /**
+   *
+   */
   @FXML
   public void calcButtonEvent() {
     informationController.calcAverageOfList();
     Platform.runLater(this::updateResultText);
   }
 
+  /**
+   *
+   */
   @FXML
   public void resetButtonEvent() {
     informationController.resetInformationOfList();

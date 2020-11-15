@@ -3,14 +3,18 @@ package org.openjfx;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
+/**
+ *
+ */
 public class InformationSet {
 
-  //object variables
   private int averageGradeValue;
 
-  //list with all added subjects
   private final ObservableList<Subject> subjects = FXCollections.observableArrayList();
 
+  /**
+   *
+   */
   public void setAverageGradeValue() {
     if (subjects.size() > 0) {
       averageGradeValue = calcAverageGrade(subjects);
@@ -19,22 +23,42 @@ public class InformationSet {
     }
   }
 
+  /**
+   *
+   * @return
+   */
   public int getAverageGradeValue() {
     return averageGradeValue;
   }
 
+  /**
+   *
+   * @return
+   */
   public Subject getLastSubject() {
     return subjects.get(subjects.size() - 1);
   }
 
+  /**
+   *
+   * @param subjectName
+   * @param grade
+   */
   public void addSubject(String subjectName, int grade) {
     subjects.add(new Subject(subjectName, grade));
   }
 
+  /**
+   *
+   * @return
+   */
   public boolean subjectsIsEmpty() {
     return subjects.isEmpty();
   }
 
+  /**
+   *
+   */
   public void resetSubjects() {
     subjects.clear();
     setAverageGradeValue();
